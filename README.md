@@ -98,8 +98,7 @@ All item-related endpoints are prefixed with `/items`.
 
 ## Testing
 
-- You can use [Postman](https://www.postman.com/) or VS Code's built-in REST Client (`tester.http`) to test the endpoints.
-- A sample Postman collection is included: `REST API basics- CRUD, test & variable.postman_collection.json`
+- A sample Postman collection is at: "https://www.postman.com/ife-di-ora/workspace/w1/request/31603116-e8d28fb0-5b86-418a-8a9a-e76d12e4c967?action=share&creator=31603116&ctx=documentation"
 
 ## Project Structure
 
@@ -111,7 +110,6 @@ controllers/
 routers/
   itemRouter.js
 tester.http
-REST API basics- CRUD, test & variable.postman_collection.json
 ```
 
 ## License

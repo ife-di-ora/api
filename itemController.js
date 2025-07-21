@@ -12,7 +12,7 @@ const schema = Joi.object({
   description: Joi.string().required(),
 }).unknown();
 
-const getAllItems = async (req, res) => {
+const getAllItems = (req, res) => {
   try {
     if (dataStore.length < 1) {
       return res.status(500).send({
@@ -32,7 +32,7 @@ const getOneItem = (req, res) => {
     console.log(itemFound);
 
     if (!itemFound) {
-      return res.status(400).send({ message: "No item with ID found" });
+      return res.status(404).send({ message: "No item with ID found" });
     }
     return res.status(200).send({ message: "item found", data: itemFound });
   } catch (error) {
@@ -40,7 +40,7 @@ const getOneItem = (req, res) => {
   }
 };
 
-const addItem = async (req, res) => {
+const addItem = (req, res) => {
   const { error, value } = schema.validate(req.body);
   if (error) {
     return res.status(400).json({
@@ -64,7 +64,7 @@ const updateItem = (req, res) => {
 
     const itemIndex = dataStore.findIndex((item) => item.id == id);
     if (itemIndex === -1) {
-      return res.status(400).send({ message: "item not found" });
+      return res.status(404).send({ message: "item not found" });
     }
     const { error, value } = schema.validate(req.body);
     if (error) {
